@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Your Name?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightyellow;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+ 
+        h1 {
+            font-size: 2rem;
+            color: darkblue;
+            margin-bottom: 20px;
+        }
+
+        input {
+            font-size: 1.2rem;
+            padding: 10px;
+            width: 300px;
+            border: 2px solid darkblue;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: darkblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bạn tên là gì:</h1>
+    <input type="text" id="name-input" placeholder="Nhập tên của bạn...">
+    <button id="ok-button">OK</button>
+
+    <!-- Thêm thẻ audio để nhúng âm thanh -->
+    <audio id="sound" src="music/sound.wav" preload="auto"></audio>
+
+    <script>
+        const okButton = document.getElementById('ok-button');
+        const sound = document.getElementById('sound'); // Lấy phần tử audio
+
+        okButton.addEventListener('click', () => {
+            const name = document.getElementById('name-input').value.trim();
+
+            if (name) {
+                // Phát âm thanh khi nhấn nút
+                sound.play();
+
+                // Chuyển sang trang chúc mừng
+                window.location.href = `congrats.html?name=${encodeURIComponent(name)}`;
+            } else {
+                alert('Hãy nhập tên của bạn!');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* Tổng thể */
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f0f9f1; /* Xanh lá cây nhạt */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #ffffff; /* Trắng */
+    color: #333;
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid #d4e5d6; /* Viền xanh nhạt */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #204321; /* Xanh lá */
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Gallery */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Khung ảnh */
+.frame {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Kích thước khung ảnh */
+.frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Các kích thước khác nhau */
+.frame.small {
+    width: 400px;
+    height: 400px;
+}
+
+.frame.medium {
+    width: 400px;
+    height: 400px;
+}
+
+.frame.large {
+    width: 400px;
+    height: 400px;
+}
+
+/* Vị trí ảnh trái phải */
+.left {
+    align-self: flex-start;
+}
+
+.right {
+    align-self: flex-end;
+}
+
+/* Hiệu ứng hover */
+.frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.frame img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: #70c573; /* Xanh lá */
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-family: "Arial", sans-serif;
+}

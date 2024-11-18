@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightpink;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: darkblue;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: darkblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+    <img id="user-image" src="" alt="User Image" style="display: none;">
+    <h1 id="greeting"></h1>
+    <p id="blessing"></p>
+    <button id="next-button">Xem Messi</button>
+
+    <script>
+        // Lấy tên từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || 'bạn';
+
+        // Hiển thị lời chúc
+        const greeting = document.getElementById('greeting');
+        greeting.textContent = `Chúc mừng ngày nam nhi, ${name}! 🎉`;
+
+        // Tải lời chúc từ file tương ứng với tên
+        const blessing = document.getElementById('blessing');
+        const blessingFileName = `./loichuc/${name}.txt`; // Tên file lời chúc
+        fetch(blessingFileName)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Không tìm thấy lời chúc!');
+                }
+                return response.text();
+            })
+            .then(text => {
+                blessing.textContent = text; // Hiển thị lời chúc
+            })
+            .catch(error => {
+                console.error(error);
+                blessing.textContent = 'Chúc bạn có một ngày tuyệt vời!'; // Lời chúc mặc định
+            });
+
+        // Hiển thị ảnh tương ứng với tên
+        const userImage = document.getElementById('user-image');
+        const imageFileName = `./anh/${name}.jpg`; // Tên file ảnh
+        fetch(imageFileName)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Không tìm thấy ảnh!');
+                }
+                userImage.src = imageFileName;
+                userImage.style.display = 'block'; // Hiển thị ảnh nếu tìm thấy
+            })
+            .catch(error => {
+                console.error(error);
+                // Không hiển thị ảnh nếu không tìm thấy
+            });
+
+        // Chuyển đến trang cuối khi nhấn nút
+        const nextButton = document.getElementById('next-button');
+        nextButton.addEventListener('click', () => {
+            window.location.href = './last-page.html'; // Đường dẫn đến trang cuối
+        });
+    </script>
+</body>
+</html>

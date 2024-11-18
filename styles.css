@@ -1,0 +1,109 @@
+/* Thiết lập nền màu hồng */
+body {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+/* Thiết kế chữ nổi "Happy Boys' Day" */
+.text {
+    font-family: 'Arial', sans-serif;
+    font-size: 5em;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    transform: translateY(-100px); /* Dịch chuyển chữ lên phía trên 40 cm */
+}
+
+/* Tạo hiệu ứng nổi và bóng cho chữ */
+.text::before, .text::after {
+    content: "Happy Boys' Day";
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.text::before {
+    color: #ff69b4;
+    z-index: -1;
+    transform: translate(10px, 10px);
+}
+
+.text::after {
+    color: white;
+    z-index: -2;
+    transform: translate(-5px, -5px);
+}
+
+/* Khung chứa câu hỏi */
+.question-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+/* Dòng chữ nổi "Do you love CS3" */
+.question-box h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Thiết kế button YES và NO */
+.question-box button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Button YES - cố định */
+.yes-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Button NO - di chuyển khi hover */
+.no-button {
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+    left: 60%; /* Vị trí ban đầu của nút NO */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.2s ease, top 0.2s ease;
+}
+
+/* Tạo hiệu ứng tránh con trỏ cho nút NO */
+.no-button:hover {
+    left: calc(10% + (80% * (random() - 0.5)));
+    top: calc(50% + (40% * (random() - 0.5)));
+}
+
+.gif-container {
+    padding: 300;
+    width: 100px;
+    height: 100px;  
+}
+
+
+
+
+

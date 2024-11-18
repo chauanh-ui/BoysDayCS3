@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Boys' Day</title>
+    <style>
+        /* Thiết lập nền màu hồng */
+        body {
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Thiết kế chữ nổi "Happy Boys' Day" */
+        .text {
+            font-family: 'Arial', sans-serif;
+            font-size: 5em;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* Tạo hiệu ứng nổi và bóng cho chữ */
+        .text::before, .text::after {
+            content: "Happy Boys' Day";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Bóng đổ màu đậm hơn để tạo hiệu ứng nổi */
+        .text::before {
+            color: #ff69b4;
+            z-index: -1;
+            transform: translate(10px, 10px);
+        }
+
+        /* Viền màu trắng cho chữ */
+        .text::after {
+            color: white;
+            z-index: -2;
+            transform: translate(-5px, -5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Dòng chữ "Happy Boys' Day" với hiệu ứng nổi -->
+    <div class="text">Happy Boys' Day</div>
+    <div class="question-box">
+        <h2>Do you love CS3?</h2>
+        <br>
+        <button class="yes-button">YES</button>
+        <button class="no-button">NO</button>
+    </div>
+</body>
+</html>

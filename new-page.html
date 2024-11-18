@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Your Name?</title> 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightyellow;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: darkblue;
+            margin-bottom: 20px;
+        }
+
+        input {
+            font-size: 1.2rem;
+            padding: 10px;
+            width: 300px;
+            border: 2px solid darkblue;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: darkblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kimi no namae wa?</h1>
+    <input type="text" id="name-input" placeholder="Tên của bạn VD: Nguyễn Văn A...">
+    <button id="ok-button">OK</button>
+
+    <!-- Add audio element to play sound when the page is opened -->
+    <audio id="page-sound" autoplay>
+        <source src="music/yourName.mp3" type="audio/mpeg">
+        <!-- Fallback in case the audio format isn't supported -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const okButton = document.getElementById('ok-button');
+
+        okButton.addEventListener('click', () => {
+            const name = document.getElementById('name-input').value.trim();
+
+            if (name) {
+                window.location.href = `congrats.html?name=${encodeURIComponent(name)}`; // Chuyển sang trang chúc mừng
+            } else {
+                alert('Nhập tên đi cha!');
+            }
+        });
+    </script>
+</body>
+</html>

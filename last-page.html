@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        img {
+            margin-top: 10px;
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Cảm ơn bạn đã trở thành 1 phần tuyệt vời của CS3 ❤️</h1>
+    <img src="./img/cristiano-ronaldo-drinking.gif" alt="Ronaldo không uống nước Ronaldo uống H2O">
+    <button id="next-button">Next</button>
+
+    <script>
+        const nextButton = document.getElementById('next-button');
+        nextButton.addEventListener('click', () => {
+            window.location.href = './nhap.html'; // Đường dẫn đến trang cuối
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Boys' Day</title>
+    <style>
+        /* Nền màu hồng */
+        body {
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        /* Khung chứa câu hỏi */
+        .question-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        /* Dòng chữ nổi "Do you love CS3" */
+        .question-box h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Thiết kế button YES và NO */
+        .question-box button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Button YES - cố định */
+        .yes-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Button NO - di chuyển khi hover */
+        .no-button {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            left: 60%; /* Vị trí ban đầu của nút NO */
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: left 0.2s ease, top 0.2s ease;
+        }
+
+        /* Tạo hiệu ứng tránh con trỏ cho nút NO */
+        .no-button:hover {
+            left: calc(10% + (80% * (random() - 0.5)));
+            top: calc(50% + (40% * (random() - 0.5)));
+        }
+    </style>
+</head>
+<body>
+    <!-- Khung với dòng chữ nổi và nút YES/NO -->
+    <div class="question-box">
+        <h2>Do you love CS3?</h2>
+        <br>
+        <button class="yes-button">YES</button>
+        <button class="no-button">NO</button>
+    </div>
+
+    <script>
+        // JavaScript để làm cho nút NO di chuyển ngẫu nhiên khi di chuột vào
+        const noButton = document.querySelector(".no-button");
+
+        noButton.addEventListener("mouseenter", () => {
+            const x = Math.random() * 200 - 100; // Tạo giá trị x ngẫu nhiên từ -100 đến 100
+            const y = Math.random() * 200 - 100; // Tạo giá trị y ngẫu nhiên từ -100 đến 100
+            noButton.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
